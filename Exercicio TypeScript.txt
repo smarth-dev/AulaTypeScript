@@ -1,0 +1,216 @@
+
+
+TYPESCRIPT INTRODUCTION
+
+EX1
+TypeScript allows developers to add types to JavaScript.
+
+EX2
+JavaScript is a loosely typed language.
+
+----------------------------------------------------------
+
+TYPESCRIPT GET STARTED
+
+EX1
+tsconfig.json
+
+---------------------------------------------------------
+
+TYPESCRIPT SIMPLE TYPES
+
+EX1
+Explicit
+Implicit
+
+EX2
+let firstName = "Dylan";
+
+EX3
+let firstName: string = "Dylan";
+
+---------------------------------------------------------
+
+TYPESCRIPT SPECIAL TYPES	
+
+EX1
+let myVar:any;
+
+EX2
+let myVar: unknown;
+
+---------------------------------------------------------
+TYPESCRIPT ARRAYS
+
+EX1
+const names: readonly string[] = ["Dylan"];
+
+---------------------------------------------------------
+
+TYPESCRIPT TUPLES
+
+EX1
+False
+
+EX2
+let ourTuple: [string, boolean];
+
+---------------------------------------------------------
+TYPSCRIPT OBJECT TYPES
+
+EX1
+const car: { type: string, model: string, year: number} = {
+  type: "Toyota",
+  model: "Corolla",
+  year: 2009
+};
+
+EX2
+const car: { type: string,model?: string } = {
+  type: "Toyota"
+};
+
+---------------------------------------------------------
+
+TYPSCRIPT ENUMS
+
+EX1
+enum myEnum {  
+ myFirstConst,  
+ mySecondConst
+};
+
+EX2
+enum myEnum {  
+ myFirstConst = "first",  
+ mySecondConst = "second"
+};
+
+---------------------------------------------------------
+
+TYPSCRIPT ALIASES & INTERFACES
+
+EX1
+type carType = string
+
+EX2
+interface myInterface {  
+ myProp: string
+}
+
+EX3
+
+interface myExtInterface extends myInterface {
+ myExtProp: number
+}
+
+---------------------------------------------------------
+
+TYPESCRIPT UNION TYPES
+
+EX1
+function myFunc(myVar: string |number) {
+ console.log(myVar)
+}
+
+---------------------------------------------------------
+
+TYPESCRIPT FUNCTIONS
+
+EX1
+function
+ myFunc(): string {  
+ return "Learning is Fun!";
+}
+
+EX2
+function
+ myFunc(): void {
+  console.log("Learning is Fun!");
+}
+
+EX3
+function myFunc(myVar1: string, myVar2: string) {
+  return(myVar1 + myVar2);
+}
+
+EX4
+function myFunc(myVar1: string, myVar2?: string) {
+  return(myVar1 + (myVar2 || ""));
+}
+
+
+---------------------------------------------------------
+
+TYPESCRIPT CASTING
+
+EX1
+let myVar: unknown = "Hello world!";
+console.log((myVar as string).length);
+
+EX2
+let myVar: unknown = "Hello world!";
+console.log((<string>myVar).length);
+
+---------------------------------------------------------
+
+TYPESCRIPT CLASSES
+
+EX1
+class Person { 
+private name: string;
+
+ public constructor(name: string) {
+  this.name = name;
+ }
+
+ 
+public getName(): string {
+  return this.name;
+ }
+}
+
+---------------------------------------------------------
+
+TYPESCRIPT BASIC GENERICS
+
+EX1
+function createPair
+<typeX
+, 
+typeY>
+(x: typeX, y: typeY): [typeX, typeY] {
+ return [x, y];
+}
+console.log(createPair<string, number>('Meaning', 42));
+
+---------------------------------------------------------
+
+TYPESCRIPT UTILITY TYPES
+
+EX1
+interface Person {
+    age: number;
+    firstName: string;
+    lastName: string;
+}
+            
+let kindPerson: Partial<Person> = {};
+
+EX2
+interface Person {
+    age: number;
+    firstName: string;
+    lastName?: string;
+}
+            
+let 
+kindPerson: Required<Person> = {
+    age: 1800,
+    firstName: "Santa",
+    lastName: "Claus"
+};
+
+EX3
+
+Record<string, number> is equivalent to { [key: string]: number }
